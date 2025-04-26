@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice of Scholars Election Champions 2025</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.11.0/dist/js-confetti.browser.js"></script>
+    <style>
+        :root {
+            --primary-color: #FF7200;
+            --secondary-color: #FF5003;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%);
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .gradient-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, #FF3700 100%);
+            opacity: 0.1;
+            z-index: -1;
+        }
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            opacity: 0.2;
+            z-index: -1;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1.5rem 1rem;
+            text-align: center;
+            z-index: 10;
+        }
+        .header-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: white;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .thank-you {
+            padding: 2rem 1rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 1rem auto;
+            max-width: 1000px;
+            border-radius: 12px;
+            z-index: 10;
+        }
+        .thank-you-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .hero {
+            padding: 3rem 1rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        .hero-icon {
+            font-size: clamp(4rem, 10vw, 5rem);
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+        .hero-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: white;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+        .winners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            padding: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 10;
+        }
+        .winner-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+        .winner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .winner-image {
+            width: clamp(120px, 30vw, 140px);
+            height: clamp(120px, 30vw, 140px);
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 0.8rem;
+            border: 3px solid var(--secondary-color);
+        }
+        .winner-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: clamp(1.2rem, 3vw, 1.3rem);
+            color: white;
+        }
+        .winner-role {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: var(--secondary-color);
+            margin-bottom: 0.8rem;
+        }
+        .winner-note {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+            color: #d1d5db;
+        }
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1.5rem 1rem;
+            text-align: center;
+            z-index: 10;
+        }
+        .footer-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: white;
+        }
+        .cta-button {
+            background: white;
+            color: var(--secondary-color);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+            touch-action: manipulation;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.4);
+            background: #f8f8f8;
+        }
+        /* Celebration Overlay */
+        .celebration-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .celebration-overlay.active {
+            display: flex;
+            animation: fadeIn 0.5s ease-in, fadeOut 0.5s ease-out 4.5s forwards;
+        }
+        .overlay-content {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 20px;
+            padding: 1.5rem;
+            max-width: 90%;
+            width: 600px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 80, 3, 0.3);
+            animation: scaleIn 0.5s ease-out;
+        }
+        .overlay-content .circle {
+            background: rgba(255, 255, 255, 0.2);
+            opacity: 0.3;
+        }
+        .overlay-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.8rem, 5vw, 2rem);
+            color: white;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .overlay-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .overlay-icon {
+            font-size: clamp(2.5rem, 8vw, 3rem);
+            color: white;
+            margin-bottom: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+        #confetti-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        /* Falling Messages */
+        .falling-message {
+            position: fixed;
+            top: -50px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            text-shadow: 1px 1px 2px var(--secondary-color);
+            opacity: 0.9;
+            z-index: 5;
+            pointer-events: none;
+            animation: fall 10s linear forwards;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .animate-fadeIn {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        /* Media Queries */
+        @media (max-width: 640px) {
+            .winners-grid {
+                grid-template-columns: 1fr;
+            }
+            .winner-card {
+                padding: 0.8rem;
+            }
+            .winner-image {
+                width: 100px;
+                height: 100px;
+            }
+            .falling-message {
+                font-size: 0.9rem;
+            }
+        }
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .winners-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="header-title">Scholars Council Election Champions 2025</h1>
+    </header>
+
+    <!-- Thank-You Section -->
+    <section class="thank-you">
+        <p class="thank-you-text animate-fadeIn">
+            A heartfelt thank you to all our supporters, voters, and the entire Scholars community! Your unwavering support, trust, and dedication made this historic 2025 election victory possible. Together, we’ve amplified our voice and set the stage for a brighter future!
+        </p>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="gradient-background"></div>
+        <div class="circle" style="width: 250px; height: 250px; top: -80px; right: -80px;"></div>
+        <div class="circle" style="width: 180px; height: 180px; bottom: -60px; left: -60px;"></div>
+        <i class="fas fa-trophy hero-icon animate-fadeIn"></i>
+        <p class="hero-text animate-fadeIn delay-100">
+            Celebrating the triumphant election victory of our Voice of Scholars leaders in 2025! Four exceptional champions have been elected to amplify our voice and shape our future.
+        </p>
+    </section>
+
+    <!-- Winners Section -->
+    <section class="winners">
+        <div class="winners-grid">
+            <div class="winner-card animate-fadeIn delay-100">
+                <img src="img/asafu2.jpg" alt="Asafu Mamlaka Etandala" class="winner-image">
+                <h3 class="winner-name">Asafu Mamlaka Etandala</h3>
+                <p class="winner-role">President</p>
+                <p class="winner-note">Asafu’s visionary leadership secured the presidency!</p>
+            </div>
+            <div class="winner-card animate-fallIn delay-300">
+                <img src="img/ren.jpg" alt="Rencia Seda" class="winner-image">
+                <h3 class="winner-name">Rencia Seda</h3>
+                <p class="winner-role">Vice President</p>
+                <p class="winner-note">Rencia’s eloquence won the vice presidency!</p>
+            </div>
+            <div class="winner-card animate-fadeIn delay-200">
+                <img src="img/jaili.jpg" alt="Jaili Abdala" class="winner-image">
+                <h3 class="winner-name">Jaili Abdala</h3>
+                <p class="winner-role">Scholar Support Representative</p>
+                <p class="winner-note">Jaili’s dedication to scholars clinched the victory!</p>
+            </div>
+            
+            <div class="winner-card animate-fallIn delay-400">
+                <img src="img/halefuti.jpg" alt="Helefti Gudayu" class="winner-image">
+                <h3 class="winner-name">Helefti Gudayu</h3>
+                <p class="winner-role">Community Engagement</p>
+                <p class="winner-note">Helefti’s community spirit triumphed in the election!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">Join Voice of Scholars to amplify your voice and shape our future!</p>
+        <button class="cta-button">Support Our Mission</button>
+    </footer>
+
+    <!-- Celebration Overlay -->
+    <div class="celebration-overlay" id="celebrationOverlay">
+        <canvas id="confetti-canvas"></canvas>
+        <div class="overlay-content">
+            <div class="circle" style="width: 150px; height: 150px; top: -80px; right: -60px;"></div>
+            <div class="circle" style="width: 100px; height: 100px; bottom: -40px; left: -40px;"></div>
+            <i class="fas fa-trophy overlay-icon"></i>
+            <h2 class="overlay-title">Election Victory for Voice of Scholars!</h2>
+            <p class="overlay-text">
+                Congratulations to our 2025 election champions: Asafu Mamlaka Etandala, Jaili Abdala, Rencia Seda, and Helefti Gudayu! Your leadership will transform our community!
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize JSConfetti
+        const jsConfetti = new JSConfetti();
+
+        // Show overlay and trigger confetti on page load
+        window.onload = function() {
+            // Celebration Overlay
+            const overlay = document.getElementById('celebrationOverlay');
+            overlay.classList.add('active');
+            jsConfetti.addConfetti({
+                emojis: ['🎉', '🏆', '✨'],
+                confettiRadius: 6,
+                confettiNumber: 150,
+            });
+            setTimeout(() => {
+                jsConfetti.addConfetti({
+                    emojis: ['🎉', '🏆', '✨'],
+                    confettiRadius: 6,
+                    confettiNumber: 50,
+                });
+            }, 1000);
+            setTimeout(() => {
+                overlay.classList.remove('active');
+                jsConfetti.clear();
+            }, 8000);
+
+            // Falling Congratulations Messages
+            const messages = [
+                'Congrats Asafu!',
+                'Victory for Jaili!',
+                'Well Done Rencia!',
+                'Helefti Shines!',
+                'Voice of Scholars Wins!',
+                '2025 Champions!',
+                'Amazing Leadership!',
+                'Election Triumph!'
+            ];
+
+            function createFallingMessage() {
+                const message = document.createElement('div');
+                message.className = 'falling-message';
+                message.textContent = messages[Math.floor(Math.random() * messages.length)];
+                // Random horizontal position (10% to 90% of window width)
+                const leftPos = Math.random() * 80 + 10;
+                message.style.left = `${leftPos}%`;
+                // Random slight rotation
+                const rotation = Math.random() * 20 - 10;
+                message.style.transform = `rotate(${rotation}deg)`;
+                document.body.appendChild(message);
+                // Remove message after animation
+                setTimeout(() => {
+                    message.remove();
+                }, 10000); // Matches animation duration
+            }
+
+            // Create messages at intervals
+            setInterval(createFallingMessage, 1500); // New message every 1.5 seconds
+            createFallingMessage(); // Start immediately
+        };
+    </script>
+</body>
+</html>
