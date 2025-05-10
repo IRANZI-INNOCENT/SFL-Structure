@@ -3,441 +3,2533 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voice of Scholars Election Champions 2025</title>
+    <title>The Scholars League - Football Tournament Proposal</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.11.0/dist/js-confetti.browser.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #FF7200;
-            --secondary-color: #FF5003;
-        }
+        /* Base Styles */
         body {
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #2b2b2b 0%, #1a1a1a 100%);
-            color: white;
+            background: #f0f4f8;
+            color: #333;
+            counter-reset: section;
             overflow-x: hidden;
-            position: relative;
         }
-        .gradient-background {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, #FF3700 100%);
-            opacity: 0.1;
-            z-index: -1;
-        }
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            background: var(--secondary-color);
-            opacity: 0.2;
-            z-index: -1;
-        }
-        .header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            padding: 1.5rem 1rem;
-            text-align: center;
-            z-index: 10;
-        }
-        .header-title {
+        
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            color: white;
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
-        .thank-you {
-            padding: 2rem 1rem;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            margin: 1rem auto;
-            max-width: 1000px;
-            border-radius: 12px;
-            z-index: 10;
-        }
-        .thank-you-text {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 400;
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            color: white;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        .hero {
-            padding: 3rem 1rem;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
-        .hero-icon {
-            font-size: clamp(4rem, 10vw, 5rem);
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            animation: pulse 2s infinite;
-        }
-        .hero-text {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            font-size: clamp(1.1rem, 3vw, 1.3rem);
-            color: white;
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
-        }
-        .winners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            padding: 1.5rem;
+        
+        .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            z-index: 10;
+            padding: 20px;
         }
-        .winner-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            border-bottom: 4px solid var(--secondary-color);
+        
+        /* Football Field Colors */
+        :root {
+            --field-green: #3a6e35;
+            --field-green-light: #4a8943;
+            --field-green-dark: #2a5026;
+            --team-blue: #1c3d5a;
+            --team-blue-light: #2a5980;
+            --team-blue-dark: #0e2638;
+            --accent-gold: #f6c324;
+            --accent-gold-light: #ffd54f;
+            --accent-gold-dark: #d6a300;
+            --accent-red: #c83232;
+            --accent-red-light: #e64545;
+            --accent-red-dark: #a52222;
+            --field-line: rgba(255, 255, 255, 0.8);
+            --net-color: #e0e0e0;
         }
-        .winner-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        
+        /* Football Animation */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(15deg); }
         }
-        .winner-image {
-            width: clamp(120px, 30vw, 140px);
-            height: clamp(120px, 30vw, 140px);
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 0.8rem;
-            border: 3px solid var(--secondary-color);
+        
+        @keyframes roll {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-        .winner-name {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: clamp(1.2rem, 3vw, 1.3rem);
-            color: white;
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
-        .winner-role {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            font-size: clamp(0.9rem, 2.5vw, 1rem);
-            color: var(--secondary-color);
-            margin-bottom: 0.8rem;
-        }
-        .winner-note {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 400;
-            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
-            color: #d1d5db;
-        }
-        .footer {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            padding: 1.5rem 1rem;
-            text-align: center;
-            z-index: 10;
-        }
-        .footer-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            color: white;
-        }
-        .cta-button {
-            background: white;
-            color: var(--secondary-color);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            border-radius: 12px;
-            padding: 10px 20px;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            margin-top: 1rem;
-            touch-action: manipulation;
-        }
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.4);
-            background: #f8f8f8;
-        }
-        /* Celebration Overlay */
-        .celebration-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-        .celebration-overlay.active {
-            display: flex;
-            animation: fadeIn 0.5s ease-in, fadeOut 0.5s ease-out 4.5s forwards;
-        }
-        .overlay-content {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 20px;
-            padding: 1.5rem;
-            max-width: 90%;
-            width: 600px;
-            text-align: center;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 80, 3, 0.3);
-            animation: scaleIn 0.5s ease-out;
-        }
-        .overlay-content .circle {
-            background: rgba(255, 255, 255, 0.2);
-            opacity: 0.3;
-        }
-        .overlay-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: clamp(1.8rem, 5vw, 2rem);
-            color: white;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        .overlay-text {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 400;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            color: white;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-        .overlay-icon {
-            font-size: clamp(2.5rem, 8vw, 3rem);
-            color: white;
-            margin-bottom: 0.5rem;
-            animation: pulse 2s infinite;
-        }
-        #confetti-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        /* Falling Messages */
-        .falling-message {
-            position: fixed;
-            top: -50px;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-            text-shadow: 1px 1px 2px var(--secondary-color);
-            opacity: 0.9;
-            z-index: 5;
-            pointer-events: none;
-            animation: fall 10s linear forwards;
-        }
-        @keyframes fall {
-            0% { transform: translateY(-100vh); }
-            100% { transform: translateY(100vh); }
-        }
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
+        
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-        .animate-fadeIn {
-            animation: fadeInUp 0.8s ease-out forwards;
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes shine {
+            0% { left: -100%; opacity: 0.5; }
+            100% { left: 100%; opacity: 0; }
+        }
+        
+        @keyframes goalScored {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes netShake {
+            0% { transform: skewX(0); }
+            25% { transform: skewX(3deg); }
+            50% { transform: skewX(-3deg); }
+            75% { transform: skewX(2deg); }
+            100% { transform: skewX(0); }
+        }
+        
+        @keyframes goalKeeperDive {
+            0% { transform: translateX(0) rotate(0); }
+            50% { transform: translateX(30px) rotate(30deg); }
+            100% { transform: translateX(0) rotate(0); }
+        }
+        
+        @keyframes ballTrail {
+            0% { width: 0; opacity: 0.7; }
+            100% { width: 50px; opacity: 0; }
+        }
+        
+        @keyframes whistleSound {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        /* Animation Classes */
+        .football {
+            animation: bounce 3s ease-in-out infinite;
+            position: relative;
+        }
+        
+        .rolling-ball {
+            animation: roll 4s linear infinite;
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .pulsing {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .fade-in {
             opacity: 0;
+            animation: fadeIn 1s forwards;
         }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        /* Media Queries */
-        @media (max-width: 640px) {
-            .winners-grid {
-                grid-template-columns: 1fr;
-            }
-            .winner-card {
-                padding: 0.8rem;
-            }
-            .winner-image {
-                width: 100px;
-                height: 100px;
-            }
-            .falling-message {
-                font-size: 0.9rem;
-            }
+        
+        .fade-in-delay-1 { animation-delay: 0.2s; }
+        .fade-in-delay-2 { animation-delay: 0.4s; }
+        .fade-in-delay-3 { animation-delay: 0.6s; }
+        .fade-in-delay-4 { animation-delay: 0.8s; }
+        
+        .goal-scored {
+            animation: goalScored 1.5s ease-in-out;
         }
-        @media (min-width: 641px) and (max-width: 1024px) {
-            .winners-grid {
+        
+        .net-shake {
+            animation: netShake 0.5s ease-in-out;
+        }
+        
+        .goal-keeper-dive {
+            animation: goalKeeperDive 1s ease-in-out;
+        }
+        
+        .whistle-blow {
+            animation: whistleSound 0.5s ease-in-out;
+        }
+        
+        /* Football Field Elements */
+        .field-bg {
+            background: linear-gradient(to right, var(--field-green-dark), var(--field-green), var(--field-green-dark));
+            position: relative;
+        }
+        
+        .field-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(0deg, transparent 24%, var(--field-green-light) 25%, var(--field-green-light) 26%, transparent 27%, transparent 74%, var(--field-green-light) 75%, var(--field-green-light) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, var(--field-green-light) 25%, var(--field-green-light) 26%, transparent 27%, transparent 74%, var(--field-green-light) 75%, var(--field-green-light) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+        
+        .field-line {
+            background-color: var(--field-line);
+            position: absolute;
+        }
+        
+        .center-circle {
+            border: 3px solid var(--field-line);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+        
+        .goal-post {
+            border: 4px solid var(--net-color);
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .goal-post::before, .goal-post::after {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 30px;
+            background: var(--net-color);
+        }
+        
+        .goal-post::before {
+            left: 0;
+            top: 0;
+        }
+        
+        .goal-post::after {
+            right: 0;
+            top: 0;
+        }
+        
+        .goal-net {
+            background-image: 
+                linear-gradient(var(--net-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--net-color) 1px, transparent 1px);
+            background-size: 10px 10px;
+            opacity: 0.7;
+        }
+        
+        /* Section Styles */
+        .section {
+            margin-bottom: 60px;
+            position: relative;
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        .section::before {
+            counter-increment: section;
+            content: counter(section);
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--team-blue), var(--team-blue-dark));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .section-header {
+            padding: 15px 20px;
+            margin: -20px -20px 20px -20px;
+            border-radius: 10px 10px 0 0;
+            background: linear-gradient(135deg, var(--team-blue), var(--team-blue-dark));
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-header i {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+        
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .card-shine {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                rgba(255,255,255,0) 0%,
+                rgba(255,255,255,0.3) 50%,
+                rgba(255,255,255,0) 100%
+            );
+            transform: skewX(-15deg);
+            transition: 0.5s;
+        }
+        
+        .card:hover .card-shine {
+            animation: shine 1s forwards;
+        }
+        
+        .card-3d {
+            transition: transform 0.3s;
+            transform-style: preserve-3d;
+        }
+        
+        .card-3d:hover {
+            transform: perspective(1000px) rotateY(10deg);
+        }
+        
+        /* Custom Colors */
+        .bg-field {
+            background: var(--field-green);
+        }
+        
+        .bg-field-light {
+            background: var(--field-green-light);
+        }
+        
+        .bg-field-dark {
+            background: var(--field-green-dark);
+        }
+        
+        .bg-team {
+            background: var(--team-blue);
+        }
+        
+        .bg-team-light {
+            background: var(--team-blue-light);
+        }
+        
+        .bg-accent {
+            background: var(--accent-gold);
+        }
+        
+        .bg-accent-light {
+            background: var(--accent-gold-light);
+        }
+        
+        .bg-field-gradient {
+            background: linear-gradient(135deg, var(--field-green), var(--field-green-dark));
+        }
+        
+        .bg-team-gradient {
+            background: linear-gradient(135deg, var(--team-blue), var(--team-blue-dark));
+        }
+        
+        .bg-accent-gradient {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+        }
+        
+        .text-field {
+            color: var(--field-green);
+        }
+        
+        .text-team {
+            color: var(--team-blue);
+        }
+        
+        .text-accent {
+            color: var(--accent-gold);
+        }
+        
+        .border-field {
+            border-color: var(--field-green);
+        }
+        
+        .border-team {
+            border-color: var(--team-blue);
+        }
+        
+        .border-accent {
+            border-color: var(--accent-gold);
+        }
+        
+        /* Soccer Field */
+        .soccer-field {
+            background: linear-gradient(to bottom, var(--field-green-light), var(--field-green), var(--field-green-dark));
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.3);
+        }
+        
+        .soccer-field::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(0deg, transparent 49%, var(--field-green-light) 49%, var(--field-green-light) 51%, transparent 51%),
+                linear-gradient(90deg, transparent 49%, var(--field-green-light) 49%, var(--field-green-light) 51%, transparent 51%);
+            background-size: 50px 50px;
+            opacity: 0.2;
+        }
+        
+        /* Family Card Grid */
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        /* Tournament Bracket */
+        .bracket-connector {
+            border-right: 2px solid var(--field-line);
+            border-top: 2px solid var(--field-line);
+            border-bottom: 2px solid var(--field-line);
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+        
+        /* Trophy Animations */
+        .trophy-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--team-blue-dark), var(--team-blue));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: 100px 100px;
+            opacity: 0.1;
+        }
+        
+        /* Football Field Pattern */
+        .field-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(to right, 
+                    transparent 40%, 
+                    rgba(255,255,255,0.05) 40%, 
+                    rgba(255,255,255,0.05) 60%, 
+                    transparent 60%),
+                linear-gradient(to bottom, 
+                    transparent 40%, 
+                    rgba(255,255,255,0.05) 40%, 
+                    rgba(255,255,255,0.05) 60%, 
+                    transparent 60%);
+            background-size: 300px 300px;
+            background-position: center;
+        }
+        
+        .center-circle-pattern {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            border: 5px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .center-circle-pattern::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-50%);
+        }
+        
+        /* Animated Ball */
+        .animated-ball {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="white" stroke="%23333" stroke-width="2"/><path d="M50,5 L50,95 M5,50 L95,50 M20,20 L80,80 M20,80 L80,20" stroke="%23333" stroke-width="2" fill="none"/></svg>');
+            background-size: cover;
+            animation: floatingBall 20s linear infinite alternate;
+            z-index: 100;
+            pointer-events: none;
+            opacity: 0.6;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.3));
+        }
+        
+        @keyframes floatingBall {
+            0% { top: 10%; left: 10%; transform: rotate(0deg); }
+            20% { top: 20%; left: 80%; transform: rotate(72deg); }
+            40% { top: 80%; left: 30%; transform: rotate(144deg); }
+            60% { top: 40%; left: 60%; transform: rotate(216deg); }
+            80% { top: 70%; left: 80%; transform: rotate(288deg); }
+            100% { top: 30%; left: 20%; transform: rotate(360deg); }
+        }
+        
+        .ball-trail {
+            position: absolute;
+            height: 5px;
+            background: linear-gradient(to left, rgba(255,255,255,0.8), transparent);
+            transform-origin: left center;
+            animation: ballTrail 0.5s linear infinite;
+        }
+        
+        /* Ball cursor */
+        .ball-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="white" stroke="%23333" stroke-width="2"/><path d="M50,5 L50,95 M5,50 L95,50 M20,20 L80,80 M20,80 L80,20" stroke="%23333" stroke-width="2" fill="none"/></svg>');
+            background-size: cover;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* Jersey Design */
+        .jersey-pattern {
+            background-color: var(--team-blue);
+            background-image: 
+                linear-gradient(90deg, 
+                    var(--team-blue-dark) 10%, 
+                    transparent 10%, 
+                    transparent 90%, 
+                    var(--team-blue-dark) 90%),
+                repeating-linear-gradient(0deg, 
+                    var(--team-blue-dark) 0, 
+                    var(--team-blue-dark) 1px, 
+                    var(--team-blue) 1px, 
+                    var(--team-blue) 10px);
+            color: white;
+        }
+        
+        .jersey-stripe-vertical {
+            background: var(--team-blue);
+            background-image: repeating-linear-gradient(90deg, 
+                transparent, 
+                transparent 15px, 
+                var(--team-blue-light) 15px, 
+                var(--team-blue-light) 30px);
+            color: white;
+        }
+        
+        .jersey-stripe-horizontal {
+            background: var(--field-green);
+            background-image: repeating-linear-gradient(0deg, 
+                transparent, 
+                transparent 15px, 
+                var(--field-green-light) 15px, 
+                var(--field-green-light) 30px);
+            color: white;
+        }
+        
+        /* Whistle Animation */
+        .whistle-icon {
+            transition: all 0.3s;
+        }
+        
+        .whistle-icon:hover {
+            transform: scale(1.2);
+            color: var(--accent-gold);
+            animation: whistleSound 0.5s ease-in-out;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .family-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+        
+        @media (max-width: 640px) {
+            .family-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+        
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(58, 110, 53, 0.3);
+            margin: 8px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-dot:hover, .nav-dot.active {
+            background: var(--field-green);
+            transform: scale(1.3);
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 9999;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--field-green), var(--team-blue));
+            width: 0%;
+            transition: width 0.2s ease;
+        }
+        
+        /* Scoreboard Style */
+        .scoreboard {
+            background: #222;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-family: 'Montserrat', monospace;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            border: 2px solid #444;
+        }
+        
+        .scoreboard-divider {
+            font-size: 24px;
+            margin: 0 10px;
+            color: var(--accent-gold);
+        }
+        
+        .scoreboard-time {
+            background: #333;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        
+        /* Stadium Lights Effect */
+        .stadium-light {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        /* Print/PDF Optimization */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin-bottom: 30px;
+            }
+            
+            .nav-dots, .progress-container, .animated-ball, .ball-cursor {
+                display: none;
+            }
+        }
+        
+        /* Flip Cards */
+        .flip-card {
+            perspective: 1000px;
+            height: 200px;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background: var(--team-blue);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        /* Football Badge Design */
+        .football-badge {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            background: var(--team-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            margin: 0 auto;
+        }
+        
+        .football-badge::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+        }
+        
+        .football-badge-star {
+            position: absolute;
+            color: var(--accent-gold);
+            font-size: 10px;
+        }
+
+        /* Star positions around the badge */
+        .football-badge-star:nth-child(1) { top: 10%; left: 50%; transform: translateX(-50%); }
+        .football-badge-star:nth-child(2) { top: 25%; right: 15%; }
+        .football-badge-star:nth-child(3) { bottom: 25%; right: 15%; }
+        .football-badge-star:nth-child(4) { bottom: 10%; left: 50%; transform: translateX(-50%); }
+        .football-badge-star:nth-child(5) { bottom: 25%; left: 15%; }
+        .football-badge-star:nth-child(6) { top: 25%; left: 15%; }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <h1 class="header-title">Scholars Council Election Champions 2025</h1>
-    </header>
-
-    <!-- Thank-You Section -->
-    <section class="thank-you">
-        <p class="thank-you-text animate-fadeIn">
-            A heartfelt thank you to all our supporters, voters, and the entire Scholars community! Your unwavering support, trust, and dedication made this historic 2025 election victory possible. Together, we’ve amplified our voice and set the stage for a brighter future!
-        </p>
-    </section>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="gradient-background"></div>
-        <div class="circle" style="width: 250px; height: 250px; top: -80px; right: -80px;"></div>
-        <div class="circle" style="width: 180px; height: 180px; bottom: -60px; left: -60px;"></div>
-        <i class="fas fa-trophy hero-icon animate-fadeIn"></i>
-        <p class="hero-text animate-fadeIn delay-100">
-            Celebrating the triumphant election victory of our Voice of Scholars leaders in 2025! Four exceptional champions have been elected to amplify our voice and shape our future.
-        </p>
-    </section>
-
-    <!-- Winners Section -->
-    <section class="winners">
-        <div class="winners-grid">
-            <div class="winner-card animate-fadeIn delay-100">
-                <img src="img/Screenshot 2025-04-25 235308.png" alt="Asafu Mamlaka Etandala" class="winner-image">
-                <h3 class="winner-name">Asafu Mamlaka Etandala</h3>
-                <p class="winner-role">President</p>
-                <p class="winner-note">Asafu’s visionary leadership secured the presidency!</p>
-            </div>
-            <div class="winner-card animate-fallIn delay-300">
-                <img src="img/Screenshot 2025-04-26 204814.png" alt="Rencia Seda" class="winner-image">
-                <h3 class="winner-name">Rencia Seda</h3>
-                <p class="winner-role">Vice President</p>
-                <p class="winner-note">Rencia’s eloquence won the vice presidency!</p>
-            </div>
-            <div class="winner-card animate-fadeIn delay-200">
-                <img src="img/Screenshot 2025-04-26 204708.png" alt="Jaili Abdala" class="winner-image">
-                <h3 class="winner-name">Jaili Abdala</h3>
-                <p class="winner-role">Scholar Support Representative</p>
-                <p class="winner-note">Jaili’s dedication to scholars clinched the victory!</p>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <!-- Ball Cursor -->
+    <div class="ball-cursor" id="ballCursor"></div>
+    
+    <!-- Animated Football -->
+    <div class="animated-ball"></div>
+    
+    <!-- Navigation Dots -->
+    <div class="nav-dots" id="navDots"></div>
+    
+    <!-- Cover/Title Section -->
+    <section id="section-0" class="hero-section min-h-screen flex flex-col items-center justify-center">
+        <div class="field-pattern"></div>
+        <div class="center-circle-pattern"></div>
+        <div class="container max-w-4xl relative z-10">
+            <!-- Logo/Emblem Area -->
+            <div class="mb-8 relative">
+                <div class="football-badge">
+                    <i class="fas fa-futbol text-white text-4xl rolling-ball"></i>
+                    <i class="fas fa-star football-badge-star"></i>
+                    <i class="fas fa-star football-badge-star"></i>
+                    <i class="fas fa-star football-badge-star"></i>
+                    <i class="fas fa-star football-badge-star"></i>
+                    <i class="fas fa-star football-badge-star"></i>
+                    <i class="fas fa-star football-badge-star"></i>
+                </div>
+                <div class="absolute -right-6 -bottom-6 left-1/2 transform translate-x-6">
+                    <i class="fas fa-graduation-cap text-accent text-5xl floating"></i>
+                </div>
             </div>
             
-            <div class="winner-card animate-fallIn delay-400">
-                <img src="img/Screenshot 2025-04-26 204758.png" alt="Helefti Gudayu" class="winner-image">
-                <h3 class="winner-name">Helefti Gudayu</h3>
-                <p class="winner-role">Community Engagement</p>
-                <p class="winner-note">Helefti’s community spirit triumphed in the election!</p>
+            <!-- Title Area -->
+            <h1 class="text-6xl font-bold mb-4 text-center">The Scholars League</h1>
+            
+            <div class="fade-in fade-in-delay-1">
+                <h2 class="text-3xl font-semibold mb-8 text-center">Mastercard Foundation Scholars Soccer Tournament</h2>
+                
+                <div class="flex items-center justify-center bg-white py-3 px-6 rounded-lg shadow-md bg-opacity-90">
+                    <i class="fas fa-university text-team mr-3 text-xl"></i>
+                    <h3 class="text-2xl text-gray-700">USIU-Africa</h3>
+                </div>
+            </div>
+            
+            <div class="mt-12 fade-in fade-in-delay-3">
+                <div class="inline-block bg-white bg-opacity-20 backdrop-filter backdrop-blur-sm px-6 py-3 rounded-lg">
+                    <i class="fas fa-angle-double-down text-white text-3xl animate-bounce"></i>
+                    <p class="text-white text-sm mt-2">Scroll to explore</p>
+                </div>
+            </div>
+            
+            <!-- Scoreboard -->
+            <div class="absolute top-10 right-10">
+                <div class="scoreboard">
+                    <span class="font-bold text-2xl">SFL</span>
+                    <span class="scoreboard-divider">:</span>
+                    <span class="font-bold text-2xl text-accent">2025</span>
+                    <div class="scoreboard-time">KICKOFF</div>
+                </div>
             </div>
         </div>
     </section>
+    
+    <div class="container">
+        <!-- Introduction Section -->
+        <section id="section-1" class="section">
+            <div class="section-header bg-team-gradient">
+                <i class="fas fa-info-circle"></i>
+                <h2 class="text-2xl font-bold">Introduction to SFL</h2>
+            </div>
+            
+            <div class="flex flex-col md:flex-row">
+                <!-- Left Content Column -->
+                <div class="w-full md:w-7/12 md:pr-8">
+                    <h3 class="text-2xl font-semibold text-team mb-6">What is the Scholars League?</h3>
+                    
+                    <div class="p-5 mb-6 rounded-lg border-l-4 border-field bg-gradient-to-r from-green-50 to-white fade-in fade-in-delay-1">
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            A dedicated soccer tournament designed exclusively for the Mastercard Foundation Scholars community at USIU-Africa, creating a powerful platform for community building and skills development beyond academics.
+                        </p>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold text-team mb-4 fade-in fade-in-delay-2">Key Components</h3>
+                    
+                    <ul class="space-y-4 mb-6 fade-in fade-in-delay-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-users text-field mt-1 mr-3 text-lg"></i>
+                            <p class="text-gray-700">16 teams representing "families" named after iconic historical figures</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-trophy text-accent mt-1 mr-3 text-lg"></i>
+                            <p class="text-gray-700">Competitive tournament format with group stages and knockout rounds</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-handshake text-team mt-1 mr-3 text-lg"></i>
+                            <p class="text-gray-700">Multiple participation roles: players, coaches, representatives, and supporters</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Right Image/Content Column -->
+                <div class="w-full md:w-5/12 flex flex-col items-center justify-center">
+                    <div class="bg-gradient-to-br from-green-50 to-blue-50 p-6 rounded-xl shadow-lg mb-6 w-full fade-in fade-in-delay-3 relative overflow-hidden">
+                        <div class="soccer-field absolute top-0 left-0 right-0 bottom-0 opacity-10"></div>
+                        <h3 class="text-center text-team font-semibold mb-4 relative z-10">The League's Purpose</h3>
+                        <div class="flex items-center mb-4 relative z-10">
+                            <div class="w-14 h-14 rounded-full bg-field flex items-center justify-center mr-4">
+                                <i class="fas fa-futbol text-white text-xl rolling-ball"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-field-dark">Beyond the Game</h4>
+                                <p class="text-gray-600">Creating a lasting tradition that enhances the overall Scholars' experience</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center relative z-10">
+                            <div class="w-14 h-14 rounded-full bg-team flex items-center justify-center mr-4">
+                                <i class="fas fa-graduation-cap text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-team-dark">Academic Connection</h4>
+                                <p class="text-gray-600">Complementing academic pursuits with practical leadership opportunities</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full jersey-pattern p-4 rounded-lg shadow-md fade-in fade-in-delay-3">
+                        <h4 class="font-semibold mb-2 flex items-center">
+                            <i class="fas fa-quote-left mr-2"></i>
+                            Vision Statement
+                        </h4>
+                        <p class="italic">
+                            "To establish the Scholars League as a highlight of the Mastercard Foundation Scholars program, creating a sense of unity and healthy competition."
+                        </p>
+                    </div>
+                </div>
+            </div>
+             <!-- Vision Section -->
+            <div class="bg-gradient-to-r from-field to-team p-6 mb-8 text-white rounded-lg">
+                <div class="flex items-center mb-3">
+                    <i class="fas fa-eye text-3xl mr-4 text-accent"></i>
+                    <h2 class="text-2xl font-bold" style="color: #c83232;">Our Vision</h2>
+                </div>
+                <p class="text-lg leading-relaxed ml-12"style="color:orange;">
+                    To establish the Scholars League as a highlight of the Mastercard Foundation Scholars program, creating a sense of unity and healthy competition.
+                </p>
+            </div>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p class="footer-text">Join Voice of Scholars to amplify your voice and shape our future!</p>
-        <button class="cta-button">Support Our Mission</button>
-    </footer>
-
-    <!-- Celebration Overlay -->
-    <div class="celebration-overlay" id="celebrationOverlay">
-        <canvas id="confetti-canvas"></canvas>
-        <div class="overlay-content">
-            <div class="circle" style="width: 150px; height: 150px; top: -80px; right: -60px;"></div>
-            <div class="circle" style="width: 100px; height: 100px; bottom: -40px; left: -40px;"></div>
-            <i class="fas fa-trophy overlay-icon"></i>
-            <h2 class="overlay-title">Election Victory for Voice of Scholars!</h2>
-            <p class="overlay-text">
-                Congratulations to our 2025 election champions: Asafu Mamlaka Etandala, Jaili Abdala, Rencia Seda, and Helefti Gudayu! Your leadership will transform our community!
-            </p>
+        <!-- Vision and Objectives Section -->
+       
+            
+           
+            
+            
+        
+        <!-- League Structure Section -->
+        <section id="section-3" class="section">
+            <div class="section-header bg-team-gradient">
+                <i class="fas fa-sitemap"></i>
+                <h2 class="text-2xl font-bold">League Structure</h2>
+            </div>
+            
+            <!-- Introduction to Families -->
+            <div class="mb-5">
+                <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 rounded-full bg-field flex items-center justify-center mr-3">
+                        <i class="fas fa-users text-white"></i>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-field-dark">The 16 Participating Families</h2>
+                </div>
+                <p class="text-gray-700 ml-14">
+                    Each family is named after an iconic African or global figure, celebrating their impactful legacies. 
+                    Every family will form and register one soccer team to compete in the league.
+                </p>
+            </div>
+            
+            <!-- Family Grid -->
+            <div class="family-grid mb-8">
+                <!-- Row 1 -->
+                <div class="flip-card fade-in fade-in-delay-1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-green-50 to-white border border-field p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-field flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-field-dark text-center">Samora Machel</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Samora Machel</h3>
+                            <p class="text-sm text-center">First President of Mozambique & revolutionary leader</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card fade-in fade-in-delay-1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-blue-50 to-white border border-team p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-team flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-team text-center">Wangari Mathai</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Wangari Mathai</h3>
+                            <p class="text-sm text-center">Kenyan environmental activist & Nobel Peace Prize winner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card fade-in fade-in-delay-1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-green-50 to-white border border-field p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-field flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-field-dark text-center">Sekou Toure</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Sekou Toure</h3>
+                            <p class="text-sm text-center">First President of Guinea & pan-African leader</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card fade-in fade-in-delay-1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-blue-50 to-white border border-team p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-team flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-team text-center">Martin Luther</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Martin Luther</h3>
+                            <p class="text-sm text-center">Influential figure in the Protestant Reformation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="flip-card fade-in fade-in-delay-2">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-blue-50 to-white border border-team p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-team flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-team text-center">Marcus Garvey</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Marcus Garvey</h3>
+                            <p class="text-sm text-center">Jamaican political activist & entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card fade-in fade-in-delay-2">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-green-50 to-white border border-field p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-field flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-field-dark text-center">Nelson Mandela</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Nelson Mandela</h3>
+                            <p class="text-sm text-center">South African revolutionary & first Black president</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card fade-in fade-in-delay-2">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-blue-50 to-white border border-team p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-team flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-team text-center">Patrice Lumumba</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Patrice Lumumba</h3>
+                            <p class="text-sm text-center">First Prime Minister of the Democratic Republic of Congo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card fade-in fade-in-delay-2">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-green-50 to-white border border-field p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-field flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-field-dark text-center">Maummar Gaddafi</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Maummar Gaddafi</h3>
+                            <p class="text-sm text-center">Revolutionary leader & former ruler of Libya</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Row 3 -->
+                <div class="flip-card fade-in fade-in-delay-3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-green-50 to-white border border-field p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-field flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-field-dark text-center">Kenneth Kaunda</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Kenneth Kaunda</h3>
+                            <p class="text-sm text-center">First President of Zambia & anti-colonial activist</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card fade-in fade-in-delay-3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-blue-50 to-white border border-team p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-team flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-team text-center">John Garang</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">John Garang</h3>
+                            <p class="text-sm text-center">Sudanese politician & leader of Sudan People's Liberation Army</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card fade-in fade-in-delay-3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-green-50 to-white border border-field p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-field flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-field-dark text-center">Chimamanda Ngozi</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Chimamanda Ngozi</h3>
+                            <p class="text-sm text-center">Nigerian writer & feminist icon</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card fade-in fade-in-delay-3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-blue-50 to-white border border-team p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-team flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-team text-center">Kwame Nkrumah</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Kwame Nkrumah</h3>
+                            <p class="text-sm text-center">First Prime Minister & President of Ghana</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Row 4 -->
+                <div class="flip-card fade-in fade-in-delay-4">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-blue-50 to-white border border-team p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-team flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-team text-center">Jomo Kenyatta</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Jomo Kenyatta</h3>
+                            <p class="text-sm text-center">First President of Kenya & anti-colonial activist</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card fade-in fade-in-delay-4">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-green-50 to-white border border-field p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-field flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-field-dark text-center">Winnie Mandela</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Winnie Mandela</h3>
+                            <p class="text-sm text-center">South African anti-apartheid activist & politician</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card fade-in fade-in-delay-4">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-blue-50 to-white border border-team p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-team flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-team text-center">Julius Nyerere</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Julius Nyerere</h3>
+                            <p class="text-sm text-center">First President of Tanzania & anti-colonial activist</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card fade-in fade-in-delay-4">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card bg-gradient-to-br from-green-50 to-white border border-field p-3 flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-field flex items-center justify-center mb-2">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-field-dark text-center">Thomas Sankara</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-lg font-medium text-center mb-2">Thomas Sankara</h3>
+                            <p class="text-sm text-center">Revolutionary leader & President of Burkina Faso</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Composition Info -->
+            <div class="bg-gradient-to-r from-field to-team p-4 rounded-lg">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 w-14 h-14 bg-accent rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-users text-team-dark text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Team Composition</h3>
+                        <div class="flex items-center mb-1">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            <p>Each family will form and register one soccer team</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-2"></i>
+                            <p>Teams will have a roster size of between 11 and 25 players</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tournament Format Section -->
+        <section id="section-4" class="section">
+            <div class="section-header bg-team-gradient">
+                <i class="fas fa-sitemap"></i>
+                <h2 class="text-2xl font-bold">Tournament Format</h2>
+            </div>
+            
+            <div class="flex flex-col md:flex-row">
+                <!-- Left Column: Tournament Phases Description -->
+                <div class="w-full md:w-5/12 pr-6">
+                    <!-- Group Stage -->
+                    <div class="mb-8 fade-in fade-in-delay-1">
+                        <div class="flex items-center mb-3">
+                            <div class="w-12 h-12 rounded-full bg-field flex items-center justify-center mr-3">
+                                <i class="fas fa-users text-white text-xl"></i>
+                            </div>
+                            <h2 class="text-2xl font-semibold text-field-dark">Group Stage</h2>
+                        </div>
+                        
+                        <div class="ml-14 bg-green-50 p-4 rounded-lg border-l-4 border-field">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-field mt-1 mr-2"></i>
+                                    <p class="text-gray-700">16 teams divided into 4 groups (A, B, C, D) of 4 teams each</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-field mt-1 mr-2"></i>
+                                    <p class="text-gray-700">Each team plays every other team in their group twice (home and away)</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-field mt-1 mr-2"></i>
+                                    <p class="text-gray-700">6 group matches per team in total</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-field mt-1 mr-2"></i>
+                                    <p class="text-gray-700">Top 2 teams from each group advance to the knockout stage</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Knockout Stage -->
+                    <div class="fade-in fade-in-delay-2">
+                        <div class="flex items-center mb-3">
+                            <div class="w-12 h-12 rounded-full bg-team flex items-center justify-center mr-3">
+                                <i class="fas fa-trophy text-white text-xl"></i>
+                            </div>
+                            <h2 class="text-2xl font-semibold text-team">Knockout Stage</h2>
+                        </div>
+                        
+                        <div class="ml-14 bg-blue-50 p-4 rounded-lg border-l-4 border-team">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-team mt-1 mr-2"></i>
+                                    <p class="text-gray-700">Quarterfinals and Semifinals played over two legs (home and away)</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-team mt-1 mr-2"></i>
+                                    <p class="text-gray-700">Winner determined by aggregate score across both matches</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-team mt-1 mr-2"></i>
+                                    <p class="text-gray-700">If tied after two legs: Extra time, then penalty shootout if needed</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-team mt-1 mr-2"></i>
+                                    <p class="text-gray-700">Final is a single match played at a neutral venue</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-team mt-1 mr-2"></i>
+                                    <p class="text-gray-700">Away goals rule is not applied</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Tournament Bracket Visualization -->
+                <div class="w-full md:w-7/12 pl-6">
+                    <h2 class="text-2xl font-semibold text-center mb-5">Tournament Progression</h2>
+                    
+                    <div class="fade-in fade-in-delay-1">
+                        <!-- Group Stage -->
+                        <div class="flex justify-between mb-8">
+                            <!-- Group A -->
+                            <div class="w-1/4 px-2">
+                                <div class="bg-field text-white py-2 text-center rounded-t-lg font-semibold">
+                                    Group A
+                                </div>
+                                <div class="border border-gray-200 rounded-b-lg overflow-hidden">
+                                    <div class="p-2 border-b border-gray-200 bg-green-50 hover:bg-green-100 transition-colors duration-300">Samora Machel</div>
+                                    <div class="p-2 border-b border-gray-200 hover:bg-green-50 transition-colors duration-300">Marcus Garvey</div>
+                                    <div class="p-2 border-b border-gray-200 bg-green-50 hover:bg-green-100 transition-colors duration-300">Kwame Nkrumah</div>
+                                    <div class="p-2 hover:bg-green-50 transition-colors duration-300">Julius Nyerere</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Group B -->
+                            <div class="w-1/4 px-2">
+                                <div class="bg-field text-white py-2 text-center rounded-t-lg font-semibold">
+                                    Group B
+                                </div>
+                                <div class="border border-gray-200 rounded-b-lg overflow-hidden">
+                                    <div class="p-2 border-b border-gray-200 bg-green-50 hover:bg-green-100 transition-colors duration-300">Wangari Mathai</div>
+                                    <div class="p-2 border-b border-gray-200 hover:bg-green-50 transition-colors duration-300">Nelson Mandela</div>
+                                    <div class="p-2 border-b border-gray-200 bg-green-50 hover:bg-green-100 transition-colors duration-300">Jomo Kenyatta</div>
+                                    <div class="p-2 hover:bg-green-50 transition-colors duration-300">Thomas Sankara</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Group C -->
+                            <div class="w-1/4 px-2">
+                                <div class="bg-field text-white py-2 text-center rounded-t-lg font-semibold">
+                                    Group C
+                                </div>
+                                <div class="border border-gray-200 rounded-b-lg overflow-hidden">
+                                    <div class="p-2 border-b border-gray-200 bg-green-50 hover:bg-green-100 transition-colors duration-300">Sekou Toure</div>
+                                    <div class="p-2 border-b border-gray-200 hover:bg-green-50 transition-colors duration-300">P Lumumba</div>
+                                    <div class="p-2 border-b border-gray-200 bg-green-50 hover:bg-green-100 transition-colors duration-300">Chimamanda N</div>
+                                    <div class="p-2 hover:bg-green-50 transition-colors duration-300">Kenneth Kaunda</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Group D -->
+                            <div class="w-1/4 px-2">
+                                <div class="bg-field text-white py-2 text-center rounded-t-lg font-semibold">
+                                    Group D
+                                </div>
+                                <div class="border border-gray-200 rounded-b-lg overflow-hidden">
+                                    <div class="p-2 border-b border-gray-200 bg-green-50 hover:bg-green-100 transition-colors duration-300">Martin Luther</div>
+                                    <div class="p-2 border-b border-gray-200 hover:bg-green-50 transition-colors duration-300">M Gaddafi</div>
+                                    <div class="p-2 border-b border-gray-200 bg-green-50 hover:bg-green-100 transition-colors duration-300">John Garang</div>
+                                    <div class="p-2 hover:bg-green-50 transition-colors duration-300">Winnie Mandela</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Knockout Bracket -->
+                        <div class="fade-in fade-in-delay-2">
+                            <div class="mt-6">
+                                <h3 class="text-center text-xl font-semibold mb-4 text-team">
+                                    <i class="fas fa-trophy mr-2 text-accent"></i>Knockout Rounds
+                                </h3>
+                                
+                                <!-- Quarterfinals -->
+                                <div class="flex justify-around mb-8">
+                                    <div class="text-center w-full">
+                                        <div class="text-sm text-gray-500 mb-2">Quarterfinals</div>
+                                        <div class="flex justify-around">
+                                            <div class="w-1/4">
+                                                <!-- QF1 -->
+                                                <div class="relative h-20">
+                                                    <div class="absolute top-0 left-0 right-0">
+                                                        <div class="border border-gray-300 p-2 rounded-lg bg-blue-50 transition duration-300 hover:bg-blue-100 hover:border-team hover:transform hover:translate-x-1">
+                                                            Winner Group A
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute bottom-0 left-0 right-0">
+                                                        <div class="border border-gray-300 p-2 rounded-lg bg-blue-50 transition duration-300 hover:bg-blue-100 hover:border-team hover:transform hover:translate-x-1">
+                                                            Runner-up Group B
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute h-full right-0 w-4 bracket-connector"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="w-1/4">
+                                                <!-- QF2 -->
+                                                <div class="relative h-20">
+                                                    <div class="absolute top-0 left-0 right-0">
+                                                        <div class="border border-gray-300 p-2 rounded-lg bg-blue-50 transition duration-300 hover:bg-blue-100 hover:border-team hover:transform hover:translate-x-1">
+                                                            Winner Group B
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute bottom-0 left-0 right-0">
+                                                        <div class="border border-gray-300 p-2 rounded-lg bg-blue-50 transition duration-300 hover:bg-blue-100 hover:border-team hover:transform hover:translate-x-1">
+                                                            Runner-up Group A
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute h-full right-0 w-4 bracket-connector"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="w-1/4">
+                                                <!-- QF3 -->
+                                                <div class="relative h-20">
+                                                    <div class="absolute top-0 left-0 right-0">
+                                                        <div class="border border-gray-300 p-2 rounded-lg bg-blue-50 transition duration-300 hover:bg-blue-100 hover:border-team hover:transform hover:translate-x-1">
+                                                            Winner Group C
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute bottom-0 left-0 right-0">
+                                                        <div class="border border-gray-300 p-2 rounded-lg bg-blue-50 transition duration-300 hover:bg-blue-100 hover:border-team hover:transform hover:translate-x-1">
+                                                            Runner-up Group D
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute h-full right-0 w-4 bracket-connector"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="w-1/4">
+                                                <!-- QF4 -->
+                                                <div class="relative h-20">
+                                                    <div class="absolute top-0 left-0 right-0">
+                                                        <div class="border border-gray-300 p-2 rounded-lg bg-blue-50 transition duration-300 hover:bg-blue-100 hover:border-team hover:transform hover:translate-x-1">
+                                                            Winner Group D
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute bottom-0 left-0 right-0">
+                                                        <div class="border border-gray-300 p-2 rounded-lg bg-blue-50 transition duration-300 hover:bg-blue-100 hover:border-team hover:transform hover:translate-x-1">
+                                                            Runner-up Group C
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute h-full right-0 w-4 bracket-connector"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Semifinals -->
+                                <div class="flex justify-center mb-8">
+                                    <div class="text-center w-full">
+                                        <div class="text-sm text-gray-500 mb-2">Semifinals</div>
+                                        <div class="flex justify-around">
+                                            <div class="w-2/5">
+                                                <!-- SF1 -->
+                                                <div class="relative h-16">
+                                                    <div class="absolute top-0 left-0 right-0">
+                                                        <div class="border border-team p-2 rounded-lg bg-blue-100 transition duration-300 hover:bg-blue-200 hover:transform hover:translate-x-1">
+                                                            QF1 Winner
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute bottom-0 left-0 right-0">
+                                                        <div class="border border-team p-2 rounded-lg bg-blue-100 transition duration-300 hover:bg-blue-200 hover:transform hover:translate-x-1">
+                                                            QF3 Winner
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute h-full right-0 w-4 bracket-connector"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="w-2/5">
+                                                <!-- SF2 -->
+                                                <div class="relative h-16">
+                                                    <div class="absolute top-0 left-0 right-0">
+                                                        <div class="border border-team p-2 rounded-lg bg-blue-100 transition duration-300 hover:bg-blue-200 hover:transform hover:translate-x-1">
+                                                            QF2 Winner
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute bottom-0 left-0 right-0">
+                                                        <div class="border border-team p-2 rounded-lg bg-blue-100 transition duration-300 hover:bg-blue-200 hover:transform hover:translate-x-1">
+                                                            QF4 Winner
+                                                        </div>
+                                                    </div>
+                                                    <div class="absolute h-full right-0 w-4 bracket-connector"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Final -->
+                                <div class="flex justify-center fade-in fade-in-delay-4">
+                                    <div class="text-center w-3/5">
+                                        <div class="text-sm text-gray-500 mb-2">Final</div>
+                                        <div class="border-2 border-accent p-3 rounded-lg bg-gradient-to-r from-blue-50 to-green-50 shadow-md pulsing relative overflow-hidden">
+                                            <div class="soccer-field absolute top-0 left-0 right-0 bottom-0 opacity-10"></div>
+                                            <div class="flex justify-center items-center relative z-10">
+                                                <div class="text-center px-4 font-medium">SF1 Winner</div>
+                                                <div class="text-center px-2">vs</div>
+                                                <div class="text-center px-4 font-medium">SF2 Winner</div>
+                                            </div>
+                                            <div class="mt-2 text-team font-semibold relative z-10">
+                                                <i class="fas fa-star text-accent mr-1"></i>
+                                                Single Match
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team Composition Section -->
+        <section id="section-5" class="section">
+            <div class="section-header bg-team-gradient">
+                <i class="fas fa-users"></i>
+                <h2 class="text-2xl font-bold">Team Composition</h2>
+            </div>
+            
+            <div class="flex flex-col md:flex-row">
+                <!-- Left Column: Team Structure Details -->
+                <div class="w-full md:w-1/2 pr-6">
+                    <h2 class="text-2xl font-semibold text-field-dark mb-6">
+                        <i class="fas fa-users mr-2"></i>Team Structure
+                    </h2>
+                    
+                    <!-- Team Requirements Card -->
+                    <div class="card fade-in fade-in-delay-1 bg-gradient-to-r from-green-50 to-white border border-field rounded-lg p-5 mb-6 shadow-sm card-3d">
+                        <div class="card-shine"></div>
+                        <h3 class="text-xl font-semibold text-field-dark mb-3">Team Requirements</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-team mt-1 mr-3"></i>
+                                <p class="text-gray-700">Each of the 16 named families will form and register one soccer team to compete in the league</p>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-team mt-1 mr-3"></i>
+                                <p class="text-gray-700">Teams will have a roster size of between <span class="font-semibold">11 and 25 players</span></p>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-team mt-1 mr-3"></i>
+                                <p class="text-gray-700">Players are drawn from the Scholars belonging to that family group</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Match Day Squad Card -->
+                    <div class="card fade-in fade-in-delay-2 bg-gradient-to-r from-blue-50 to-white border border-team rounded-lg p-5 mb-6 shadow-sm card-3d">
+                        <div class="card-shine"></div>
+                        <h3 class="text-xl font-semibold text-team mb-3">Match Day Squad</h3>
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-team flex items-center justify-center mr-4">
+                                <i class="fas fa-futbol text-white text-xl rolling-ball"></i>
+                            </div>
+                            <div>
+                                <p class="text-lg font-medium text-gray-800">Starting XI</p>
+                                <p class="text-gray-600">11 players in the starting lineup</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-field flex items-center justify-center mr-4">
+                                <i class="fas fa-exchange-alt text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-lg font-medium text-gray-800">Substitutes</p>
+                                <p class="text-gray-600">Up to 7 players available for substitution during matches</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Roles Card -->
+                    <div class="card fade-in fade-in-delay-3 jersey-stripe-vertical rounded-lg p-5 shadow-sm card-3d">
+                        <div class="card-shine"></div>
+                        <h3 class="text-xl font-semibold mb-3">Team Roles</h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center mr-2 flex-shrink-0">
+                                    <i class="fas fa-user-shield text-team-dark"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Captain</p>
+                                    <p class="text-sm opacity-80">Team leader</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center mr-2 flex-shrink-0">
+                                    <i class="fas fa-hand-paper text-team-dark"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Goalkeeper</p>
+                                    <p class="text-sm opacity-80">Last line of defense</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-2 flex-shrink-0">
+                                    <i class="fas fa-shield-alt text-team"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Defenders</p>
+                                    <p class="text-sm opacity-80">Protect the goal</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-2 flex-shrink-0">
+                                    <i class="fas fa-sync-alt text-team"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Midfielders</p>
+                                    <p class="text-sm opacity-80">Link defense & attack</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-2 flex-shrink-0">
+                                    <i class="fas fa-bolt text-team"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Forwards</p>
+                                    <p class="text-sm opacity-80">Score goals</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center mr-2 flex-shrink-0">
+                                    <i class="fas fa-lightbulb text-team-dark"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Coach</p>
+                                    <p class="text-sm opacity-80">Team strategy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Visual Representation -->
+                <div class="w-full md:w-1/2 pl-6 mt-6 md:mt-0">
+                    <!-- Team Size Visualization -->
+                    <div class="fade-in fade-in-delay-4">
+                        <h3 class="text-xl font-semibold text-team mb-4">
+                            <i class="fas fa-clipboard-list mr-2"></i>Team Roster Visualization
+                        </h3>
+                        
+                        <!-- Squad Size Indicator -->
+                        <div class="bg-blue-50 rounded-lg p-5 mb-6">
+                            <h4 class="text-lg font-medium text-field-dark mb-3">
+                                Team Size: 11-25 Players
+                            </h4>
+                            
+                            <!-- Team Member Circles -->
+                            <div class="flex items-center justify-center mb-4 flex-wrap">
+                                <div class="w-12 h-12 m-1 rounded-full bg-field flex items-center justify-center border-2 border-white text-white font-bold transform hover:scale-110 transition-transform duration-200">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="w-12 h-12 m-1 rounded-full bg-field-light flex items-center justify-center border-2 border-white text-white font-bold transform hover:scale-110 transition-transform duration-200">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="w-12 h-12 m-1 rounded-full bg-field flex items-center justify-center border-2 border-white text-white font-bold transform hover:scale-110 transition-transform duration-200">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="w-12 h-12 m-1 rounded-full bg-team flex items-center justify-center border-2 border-white text-white font-bold transform hover:scale-110 transition-transform duration-200">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="w-12 h-12 m-1 rounded-full bg-team-light flex items-center justify-center border-2 border-white text-white font-bold transform hover:scale-110 transition-transform duration-200">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="w-12 h-12 m-1 rounded-full bg-team flex items-center justify-center border-2 border-white text-white font-bold transform hover:scale-110 transition-transform duration-200">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="w-12 h-12 m-1 rounded-full bg-field flex items-center justify-center border-2 border-white text-white font-bold transform hover:scale-110 transition-transform duration-200">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="w-12 h-12 m-1 rounded-full bg-field-light flex items-center justify-center border-2 border-white text-white font-bold transform hover:scale-110 transition-transform duration-200">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="w-12 h-12 m-1 rounded-full bg-team flex items-center justify-center border-2 border-white text-white font-bold transform hover:scale-110 transition-transform duration-200 football">
+                                    +17</div>
+                            </div>
+                            
+                            <!-- Min-Max Indicator -->
+                            <div class="w-full bg-gray-200 h-2 rounded-full mb-2">
+                                <div class="relative w-full h-full">
+                                    <div class="absolute left-0 w-2 h-4 bg-field-dark rounded-full -mt-1"></div>
+                                    <div class="absolute left-0 right-0 h-2 bg-gradient-to-r from-field to-team rounded-full"></div>
+                                    <div class="absolute right-0 w-2 h-4 bg-team rounded-full -mt-1"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-600">
+                                <span>Minimum: 11 players</span>
+                                <span>Maximum: 25 players</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Soccer Field Formation Visualization -->
+                        <div class="bg-white rounded-lg overflow-hidden border border-gray-200 shadow-md">
+                            <div class="jersey-pattern text-white py-2 px-4 font-medium">
+                                <i class="fas fa-tactics mr-2"></i>Typical Formation (4-4-2)
+                            </div>
+                            <div class="soccer-field w-full h-60 p-3 relative">
+                                <!-- Field Lines -->
+                                <div class="field-line w-full h-px top-1/2"></div>
+                                <div class="field-line w-px h-full left-1/2"></div>
+                                <div class="center-circle w-16 h-16"></div>
+                                
+                                <!-- GK -->
+                                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                                    <div class="w-10 h-10 rounded-full bg-accent border-2 border-white flex items-center justify-center text-team-dark pulse" id="goalkeeper">
+                                        GK
+                                    </div>
+                                </div>
+                                
+                                <!-- Defenders -->
+                                <div class="absolute bottom-16 left-1/4 transform -translate-x-1/2">
+                                    <div class="w-10 h-10 rounded-full bg-team border-2 border-white flex items-center justify-center text-white">
+                                        LB
+                                    </div>
+                                </div>
+                                <div class="absolute bottom-16 left-1/2 -ml-12 transform -translate-x-1/2">
+                                    <div class="w-10 h-10 rounded-full bg-team border-2 border-white flex items-center justify-center text-white">
+                                        CB
+                                    </div>
+                                </div>
+                                <div class="absolute bottom-16 left-1/2 ml-12 transform -translate-x-1/2">
+                                    <div class="w-10 h-10 rounded-full bg-team border-2 border-white flex items-center justify-center text-white">
+                                        CB
+                                    </div>
+                                </div>
+                                <div class="absolute bottom-16 left-3/4 transform -translate-x-1/2">
+                                    <div class="w-10 h-10 rounded-full bg-team border-2 border-white flex items-center justify-center text-white">
+                                        RB
+                                    </div>
+                                </div>
+                                
+                                <!-- Midfielders -->
+                                <div class="absolute top-1/2 bottom-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2">
+                                    <div class="w-10 h-10 rounded-full bg-field border-2 border-white flex items-center justify-center text-white">
+                                        LM
+                                    </div>
+                                </div>
+                                <div class="absolute top-1/2 bottom-1/2 left-1/2 -ml-12 transform -translate-x-1/2 -translate-y-1/2">
+                                    <div class="w-10 h-10 rounded-full bg-field border-2 border-white flex items-center justify-center text-white">
+                                        CM
+                                    </div>
+                                </div>
+                                <div class="absolute top-1/2 bottom-1/2 left-1/2 ml-12 transform -translate-x-1/2 -translate-y-1/2">
+                                    <div class="w-10 h-10 rounded-full bg-field border-2 border-white flex items-center justify-center text-white">
+                                        CM
+                                    </div>
+                                </div>
+                                <div class="absolute top-1/2 bottom-1/2 left-3/4 transform -translate-x-1/2 -translate-y-1/2">
+                                    <div class="w-10 h-10 rounded-full bg-field border-2 border-white flex items-center justify-center text-white">
+                                        RM
+                                    </div>
+                                </div>
+                                
+                                <!-- Forwards -->
+                                <div class="absolute top-6 left-1/2 -ml-16 transform -translate-x-1/2">
+                                    <div class="w-10 h-10 rounded-full bg-accent-dark border-2 border-white flex items-center justify-center text-white">
+                                        ST
+                                    </div>
+                                </div>
+                                <div class="absolute top-6 left-1/2 ml-16 transform -translate-x-1/2">
+                                    <div class="w-10 h-10 rounded-full bg-accent-dark border-2 border-white flex items-center justify-center text-white">
+                                        ST
+                                    </div>
+                                </div>
+                                
+                                <!-- Football -->
+                                <div class="absolute w-6 h-6 bg-white rounded-full border border-gray-300 top-12 left-1/2 ml-10 transform -translate-x-1/2 hidden" id="football">
+                                    <div class="absolute top-0 left-0 right-0 bottom-0 rounded-full" 
+                                        style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"45\" fill=\"white\" stroke=\"%23333\" stroke-width=\"2\"/><path d=\"M50,5 L50,95 M5,50 L95,50 M20,20 L80,80 M20,80 L80,20\" stroke=\"%23333\" stroke-width=\"2\" fill=\"none\"/></svg>');">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 p-3 border-t border-gray-200">
+                                <div class="flex justify-center items-center space-x-4 text-sm flex-wrap">
+                                    <div class="flex items-center m-1">
+                                        <div class="w-4 h-4 rounded-full bg-accent mr-1"></div>
+                                        <span>Goalkeeper</span>
+                                    </div>
+                                    <div class="flex items-center m-1">
+                                        <div class="w-4 h-4 rounded-full bg-team mr-1"></div>
+                                        <span>Defenders</span>
+                                    </div>
+                                    <div class="flex items-center m-1">
+                                        <div class="w-4 h-4 rounded-full bg-field mr-1"></div>
+                                        <span>Midfielders</span>
+                                    </div>
+                                    <div class="flex items-center m-1">
+                                        <div class="w-4 h-4 rounded-full bg-accent-dark mr-1"></div>
+                                        <span>Forwards</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center mt-2">
+                                    <button id="simulateGoalBtn" class="px-3 py-1 bg-field text-white rounded-full hover:bg-field-light transition-colors duration-300 text-sm">
+                                        <i class="fas fa-futbol mr-1"></i> Simulate Goal Attempt
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tournament Progression Section -->
+        <section id="section-6" class="section">
+            <div class="section-header bg-team-gradient">
+                <i class="fas fa-route"></i>
+                <h2 class="text-2xl font-bold">Tournament Progression</h2>
+            </div>
+            
+            <div class="mb-4">
+                <h2 class="text-2xl font-semibold text-field-dark text-center">
+                    <i class="fas fa-trophy mr-2 text-accent"></i>Simulated Tournament Example
+                </h2>
+                <p class="text-center text-gray-600">A visual representation of how the Scholars League tournament might unfold</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row h-full relative">
+                <!-- Left Column: Group Stage -->
+                <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                    <div class="bg-field text-white py-2 px-4 rounded-t-lg text-center font-semibold">
+                        Group Stage
+                    </div>
+                    
+                    <!-- Group A -->
+                    <div class="mt-4 fade-in fade-in-delay-1">
+                        <div class="jersey-stripe-horizontal text-white py-1 px-3 rounded-t-lg text-sm">Group A</div>
+                        <div class="border border-field rounded-b-lg overflow-hidden">
+                            <div class="p-2 border-b border-field bg-green-50 flex items-center hover:bg-green-100 transition-colors">
+                                <div class="w-6 h-6 rounded-full bg-field text-white text-xs flex items-center justify-center mr-2">1</div>
+                                <span class="font-medium">Samora Machel</span>
+                            </div>
+                            <div class="p-2 border-b border-field bg-green-50 flex items-center hover:bg-green-100 transition-colors">
+                                <div class="w-6 h-6 rounded-full bg-field-light text-white text-xs flex items-center justify-center mr-2">2</div>
+                                <span class="font-medium">Kwame Nkrumah</span>
+                            </div>
+                            <div class="p-2 border-b border-gray-100 bg-gray-50 hover:bg-green-50 transition-colors">Marcus Garvey</div>
+                            <div class="p-2 bg-gray-50 hover:bg-green-50 transition-colors">Julius Nyerere</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Group B -->
+                    <div class="mt-3 fade-in fade-in-delay-1">
+                        <div class="jersey-stripe-horizontal text-white py-1 px-3 rounded-t-lg text-sm">Group B</div>
+                        <div class="border border-field rounded-b-lg overflow-hidden">
+                            <div class="p-2 border-b border-field bg-green-50 flex items-center hover:bg-green-100 transition-colors">
+                                <div class="w-6 h-6 rounded-full bg-field text-white text-xs flex items-center justify-center mr-2">1</div>
+                                <span class="font-medium">Wangari Mathai</span>
+                            </div>
+                            <div class="p-2 border-b border-field bg-green-50 flex items-center hover:bg-green-100 transition-colors">
+                                <div class="w-6 h-6 rounded-full bg-field-light text-white text-xs flex items-center justify-center mr-2">2</div>
+                                <span class="font-medium">Thomas Sankara</span>
+                            </div>
+                            <div class="p-2 border-b border-gray-100 bg-gray-50 hover:bg-green-50 transition-colors">Nelson Mandela</div>
+                            <div class="p-2 bg-gray-50 hover:bg-green-50 transition-colors">Jomo Kenyatta</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Group C -->
+                    <div class="mt-3 fade-in fade-in-delay-2">
+                        <div class="jersey-stripe-horizontal text-white py-1 px-3 rounded-t-lg text-sm">Group C</div>
+                        <div class="border border-field rounded-b-lg overflow-hidden">
+                            <div class="p-2 border-b border-field bg-green-50 flex items-center hover:bg-green-100 transition-colors">
+                                <div class="w-6 h-6 rounded-full bg-field text-white text-xs flex items-center justify-center mr-2">1</div>
+                                <span class="font-medium">Chimamanda Ngozi</span>
+                            </div>
+                            <div class="p-2 border-b border-field bg-green-50 flex items-center hover:bg-green-100 transition-colors">
+                                <div class="w-6 h-6 rounded-full bg-field-light text-white text-xs flex items-center justify-center mr-2">2</div>
+                                <span class="font-medium">Sekou Toure</span>
+                            </div>
+                            <div class="p-2 border-b border-gray-100 bg-gray-50 hover:bg-green-50 transition-colors">Patrice Lumumba</div>
+                            <div class="p-2 bg-gray-50 hover:bg-green-50 transition-colors">Kenneth Kaunda</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Group D -->
+                    <div class="mt-3 fade-in fade-in-delay-2">
+                        <div class="jersey-stripe-horizontal text-white py-1 px-3 rounded-t-lg text-sm">Group D</div>
+                        <div class="border border-field rounded-b-lg overflow-hidden">
+                            <div class="p-2 border-b border-field bg-green-50 flex items-center hover:bg-green-100 transition-colors">
+                                <div class="w-6 h-6 rounded-full bg-field text-white text-xs flex items-center justify-center mr-2">1</div>
+                                <span class="font-medium">Maummar Gaddafi</span>
+                            </div>
+                            <div class="p-2 border-b border-field bg-green-50 flex items-center hover:bg-green-100 transition-colors">
+                                <div class="w-6 h-6 rounded-full bg-field-light text-white text-xs flex items-center justify-center mr-2">2</div>
+                                <span class="font-medium">Martin Luther</span>
+                            </div>
+                            <div class="p-2 border-b border-gray-100 bg-gray-50 hover:bg-green-50 transition-colors">John Garang</div>
+                            <div class="p-2 bg-gray-50 hover:bg-green-50 transition-colors">Winnie Mandela</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Middle Column: Qualifiers -->
+                <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                    <div class="bg-team text-white py-2 px-4 rounded-t-lg text-center font-semibold">
+                        Quarter-Finals
+                    </div>
+                    
+                    <div class="h-full relative flex flex-col justify-around py-6">
+                        <!-- QF Matchups -->
+                        <div class="bg-white border-l-4 border-field shadow-md rounded-r-lg p-2 mb-1 ml-12 fade-in fade-in-delay-3 transform hover:translate-x-2 transition-transform duration-300">
+                            <div class="flex items-center">
+                                <div class="w-6 h-6 rounded-full bg-field text-white text-xs flex items-center justify-center mr-2">
+                                    <i class="fas fa-arrow-right text-xs"></i>
+                                </div>
+                                <span>Samora Machel</span>
+                            </div>
+                            <div class="text-gray-500 text-xs ml-8 mt-1">
+                                <i class="fas fa-trophy text-accent mr-1"></i>
+                                5-2 (Agg.) vs Thomas Sankara
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white border-l-4 border-field shadow-md rounded-r-lg p-2 mb-1 ml-12 fade-in fade-in-delay-3 transform hover:translate-x-2 transition-transform duration-300">
+                            <div class="flex items-center">
+                                <div class="w-6 h-6 rounded-full bg-field text-white text-xs flex items-center justify-center mr-2">
+                                    <i class="fas fa-arrow-right text-xs"></i>
+                                </div>
+                                <span>Wangari Mathai</span>
+                            </div>
+                            <div class="text-gray-500 text-xs ml-8 mt-1">
+                                <i class="fas fa-trophy text-accent mr-1"></i>
+                                3-1 (Agg.) vs Sekou Toure
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white border-l-4 border-field shadow-md rounded-r-lg p-2 mb-1 ml-12 fade-in fade-in-delay-4 transform hover:translate-x-2 transition-transform duration-300">
+                            <div class="flex items-center">
+                                <div class="w-6 h-6 rounded-full bg-field text-white text-xs flex items-center justify-center mr-2">
+                                    <i class="fas fa-arrow-right text-xs"></i>
+                                </div>
+                                <span>Chimamanda Ngozi</span>
+                            </div>
+                            <div class="text-gray-500 text-xs ml-8 mt-1">
+                                <i class="fas fa-trophy text-accent mr-1"></i>
+                                3-1 (Agg.) vs Martin Luther
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white border-l-4 border-field shadow-md rounded-r-lg p-2 mb-1 ml-12 fade-in fade-in-delay-4 transform hover:translate-x-2 transition-transform duration-300">
+                            <div class="flex items-center">
+                                <div class="w-6 h-6 rounded-full bg-field text-white text-xs flex items-center justify-center mr-2">
+                                    <i class="fas fa-arrow-right text-xs"></i>
+                                </div>
+                                <span>Maummar Gaddafi</span>
+                            </div>
+                            <div class="text-gray-500 text-xs ml-8 mt-1">
+                                <i class="fas fa-trophy text-accent mr-1"></i>
+                                3-1 (Agg.) vs Kwame Nkrumah
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Semi-Finals -->
+                <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                    <div class="bg-team-light text-white py-2 px-4 rounded-t-lg text-center font-semibold">
+                        Semi-Finals
+                    </div>
+                    
+                    <div class="h-full relative flex flex-col justify-around py-6">
+                        <!-- SF Matchups -->
+                        <div class="bg-white border-l-4 border-team shadow-md rounded-r-lg p-2 mb-1 ml-12 fade-in fade-in-delay-4 transform hover:translate-x-2 transition-transform duration-300">
+                            <div class="flex items-center">
+                                <div class="w-6 h-6 rounded-full bg-team text-white text-xs flex items-center justify-center mr-2">
+                                    <i class="fas fa-arrow-right text-xs"></i>
+                                </div>
+                                <span>Samora Machel</span>
+                            </div>
+                            <div class="text-gray-500 text-xs ml-8 mt-1">
+                                <i class="fas fa-trophy text-accent mr-1"></i>
+                                3-1 (Agg.) vs Chimamanda Ngozi
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white border-l-4 border-team shadow-md rounded-r-lg p-2 mb-1 ml-12 fade-in fade-in-delay-4 transform hover:translate-x-2 transition-transform duration-300">
+                            <div class="flex items-center">
+                                <div class="w-6 h-6 rounded-full bg-team text-white text-xs flex items-center justify-center mr-2">
+                                    <i class="fas fa-arrow-right text-xs"></i>
+                                </div>
+                                <span>Wangari Mathai</span>
+                            </div>
+                            <div class="text-gray-500 text-xs ml-8 mt-1">
+                                <i class="fas fa-trophy text-accent mr-1"></i>
+                                3-2 (Agg.) vs Maummar Gaddafi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Final Column -->
+                <div class="w-full md:w-1/4 px-3">
+                    <div class="bg-accent text-team-dark py-2 px-4 rounded-t-lg text-center font-semibold">
+                        Final
+                    </div>
+                    
+                    <div class="h-full relative flex flex-col justify-center items-center py-6">
+                        <!-- Final Result -->
+                        <div class="bg-gradient-to-r from-green-50 to-blue-50 border-2 border-accent rounded-lg p-4 text-center shadow-lg w-4/5 trophy-pulse relative overflow-hidden">
+                            <div class="soccer-field absolute top-0 left-0 right-0 bottom-0 opacity-5"></div>
+                            <div class="text-lg text-field-dark font-semibold mb-2 relative z-10">
+                                <i class="fas fa-crown text-accent mr-2"></i>
+                                Champion
+                            </div>
+                            
+                            <div class="w-24 h-24 rounded-full bg-gradient-to-br from-field to-team mx-auto mb-3 flex items-center justify-center football relative z-10">
+                                <i class="fas fa-trophy text-accent text-4xl"></i>
+                            </div>
+                            
+                            <h3 class="text-xl font-bold text-field-dark mb-1 relative z-10">Samora Machel</h3>
+                            <p class="text-gray-600 text-sm relative z-10">
+                                <i class="fas fa-futbol text-team mr-1"></i>
+                                Defeated Wangari Mathai 2-1
+                            </p>
+                            
+                            <div class="mt-4 jersey-pattern text-white rounded-lg py-1 px-2 text-sm inline-block relative z-10">
+                                <i class="fas fa-star mr-1"></i>
+                                Scholars League Champions
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Disclaimer -->
+            <div class="text-center text-gray-500 text-sm italic mt-4">
+                <i class="fas fa-info-circle mr-1"></i>
+                This is a simulated tournament progression for illustrative purposes only. Actual results will be determined by the teams' performances.
+            </div>
+        </section>
+        
+        <!-- Roles and Participation Section -->
+        <section id="section-7" class="section">
+            <div class="section-header bg-team-gradient">
+                <i class="fas fa-user-friends"></i>
+                <h2 class="text-2xl font-bold">Roles and Participation</h2>
+            </div>
+            
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-2">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-field to-team">
+                        Everyone Has a Part to Play
+                    </span>
+                </h2>
+                <p class="text-gray-600">The Scholars League encourages participation in various capacities</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <!-- Players Role Card -->
+                <div class="card-3d fade-in fade-in-delay-1 bg-gradient-to-br from-green-50 to-white border border-field rounded-lg p-5 shadow-sm">
+                    <div class="card-shine"></div>
+                    <div class="w-20 h-20 rounded-full soccer-field mx-auto flex items-center justify-center mb-4">
+                        <i class="fas fa-running text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-field-dark text-center mb-2">Players</h3>
+                    <p class="text-gray-700 text-center">Actively competing on the field for their family teams</p>
+                    
+                    <div class="mt-4">
+                        <div class="flex items-start mb-3">
+                            <div class="w-8 h-8 rounded-full bg-field-light flex items-center justify-center flex-shrink-0 mr-3">
+                                <i class="fas fa-medal text-white"></i>
+                            </div>
+                            <p class="text-gray-700">Represent their family on the pitch</p>
+                        </div>
+                        <div class="flex items-start mb-3">
+                            <div class="w-8 h-8 rounded-full bg-field-light flex items-center justify-center flex-shrink-0 mr-3">
+                                <i class="fas fa-users text-white"></i>
+                            </div>
+                            <p class="text-gray-700">Develop teamwork and leadership skills</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-field-light flex items-center justify-center flex-shrink-0 mr-3">
+                                <i class="fas fa-dumbbell text-white"></i>
+                            </div>
+                            <p class="text-gray-700">Maintain physical fitness and active lifestyle</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <span class="inline-block px-3 py-1 bg-field text-white rounded-full text-sm font-semibold">
+                            <i class="fas fa-star mr-1"></i>Primary Participants
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Coaches Role Card -->
+                <div class="card-3d fade-in fade-in-delay-2 bg-gradient-to-br from-blue-50 to-white border border-team rounded-lg p-5 shadow-sm">
+                    <div class="card-shine"></div>
+                    <div class="w-20 h-20 rounded-full jersey-pattern mx-auto flex items-center justify-center mb-4">
+                        <i class="fas fa-chalkboard-teacher text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-team text-center mb-2">Coaches</h3>
+                    <p class="text-gray-700 text-center">Guiding team strategy and managing players</p>
+                    
+                    <div class="mt-4">
+                        <div class="flex items-start mb-3">
+                            <div class="w-8 h-8 rounded-full bg-team-light flex items-center justify-center flex-shrink-0 mr-3">
+                                <i class="fas fa-chess text-white"></i>
+                            </div>
+                            <p class="text-gray-700">Develop gameplay strategies and formations</p>
+                        </div>
+                        <div class="flex items-start mb-3">
+                            <div class="w-8 h-8 rounded-full bg-team-light flex items-center justify-center flex-shrink-0 mr-3">
+                                <i class="fas fa-user-friends text-white"></i>
+                            </div>
+                            <p class="text-gray-700">Manage team dynamics and player development</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-team-light flex items-center justify-center flex-shrink-0 mr-3">
+                                <i class="fas fa-brain text-white"></i>
+                            </div>
+                            <p class="text-gray-700">Enhance tactical understanding of the game</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <span class="inline-block px-3 py-1 bg-team text-white rounded-full text-sm font-semibold">
+                            <i class="fas fa-lightbulb mr-1"></i>Strategic Leaders
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Family Representatives Role Card -->
+                <div class="card fade-in fade-in-delay-3 bg-gradient-to-br from-orange-50 to-white border border-orange-200 rounded-lg p-5 shadow-sm">
+                    <div class="card-shine"></div>
+                    <div class="w-20 h-20 rounded-full bg-orange-100 mx-auto flex items-center justify-center mb-4">
+                        <i class="fas fa-user-tie text-orange-600 text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-orange-700 text-center mb-2">Family Representatives</h3>
+                    <p class="text-gray-700 text-center">Leading the organization and management of their respective family teams</p>
+                    
+                    <div class="mt-4">
+                        <div class="flex items-start mb-3">
+                            <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0 mr-3">
+                                <i class="fas fa-tasks text-orange-600"></i>
+                            </div>
+                            <p class="text-gray-700">Handle team registration and administration</p>
+                        </div>
+                        <div class="flex items-start mb-3">
+                            <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0 mr-3">
+                                <i class="fas fa-handshake text-orange-600"></i>
+                            </div>
+                            <p class="text-gray-700">Coordinate with league organizers and other teams</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0 mr-3">
+                                <i class="fas fa-bullhorn text-orange-600"></i>
+                            </div>
+                            <p class="text-gray-700">Promote team spirit and family identity</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <span class="inline-block px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold">
+                            <i class="fas fa-clipboard-list mr-1"></i>Administrative Leaders
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Fans and Supporters Role Card -->
+                <div class="card fade-in fade-in-delay-4 bg-gradient-to-br from-teal-50 to-white border border-teal-200 rounded-lg p-5 shadow-sm">
+                    <div class="card-shine"></div>
+                    <div class="w-20 h-20 rounded-full bg-teal-100 mx-auto flex items-center justify-center mb-4">
+                        <i class="fas fa-hands-clapping text-teal-600 text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-teal-600 text-center mb-2">Fans and Supporters</h3>
+                    <p class="text-gray-700 text-center">Following the league, cheering on teams, and participating in related activities</p>
+                    
+                    <div class="mt-4">
+                        <div class="flex items-start mb-3">
+                            <div class="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0 mr-3">
+                                <i class="fas fa-flag text-teal-600"></i>
+                            </div>
+                            <p class="text-gray-700">Attend matches and cheer for their family teams</p>
+                        </div>
+                        <div class="flex items-start mb-3">
+                            <div class="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0 mr-3">
+                                <i class="fas fa-share-alt text-teal-600"></i>
+                            </div>
+                            <p class="text-gray-700">Help promote and spread the word about the league</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0 mr-3">
+                                <i class="fas fa-heart text-teal-600"></i>
+                            </div>
+                            <p class="text-gray-700">Create a vibrant and supportive atmosphere</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <span class="inline-block px-3 py-1 bg-teal-100 text-teal-600 rounded-full text-sm font-semibold">
+                            <i class="fas fa-megaphone mr-1"></i>Community Builders
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Awards Section -->
+        <section id="section-8" class="section">
+            <div class="section-header">
+                <i class="fas fa-award"></i>
+                <h2 class="text-2xl font-bold">Awards</h2>
+            </div>
+            
+            <div class="mb-5 text-center">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-2">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-teal-500">
+                        Recognition of Excellence
+                    </span>
+                </h2>
+                <p class="text-gray-600">Celebrating achievement and fair play throughout the tournament</p>
+            </div>
+            
+            <!-- Awards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <!-- Team Awards -->
+                <div class="card fade-in fade-in-delay-1 bg-gradient-to-br from-orange-50 to-white border border-orange-200">
+                    <div class="card-shine"></div>
+                    <div class="p-3 flex items-center border-b-3 border-orange-500">
+                        <div class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center mr-3 trophy-pulse">
+                            <i class="fas fa-trophy text-white"></i>
+                        </div>
+                        <h3 class="text-orange-700 font-semibold" style="color:orange">Scholars League Champions</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-700">Awarded to the tournament winner after the final match</p>
+                        <div class="flex items-center mt-3 text-sm text-orange-600">
+                            <i class="fas fa-medal mr-2"></i>
+                            <span>Main Championship Trophy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card fade-in fade-in-delay-1 bg-gradient-to-br from-orange-50 to-white border border-orange-200">
+                    <div class="card-shine"></div>
+                    <div class="p-3 flex items-center border-b-3 border-orange-500">
+                        <div class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center mr-3 trophy-pulse">
+                            <i class="fas fa-award text-white"></i>
+                        </div>
+                        <h3 class="text-orange-700 font-semibold" style="color:rgb(213, 77, 3)">Runners-up</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-700">For the second-placed team that reaches the final</p>
+                        <div class="flex items-center mt-3 text-sm text-orange-600">
+                            <i class="fas fa-medal mr-2"></i>
+                            <span>Silver Medal & Trophy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card fade-in fade-in-delay-1 bg-gradient-to-br from-orange-50 to-white border border-orange-200">
+                    <div class="card-shine"></div>
+                    <div class="p-3 flex items-center border-b-3 border-orange-500">
+                        <div class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center mr-3 trophy-pulse">
+                            <i class="fas fa-handshake text-white"></i>
+                        </div>
+                        <h3 class="text-orange-700 font-semibold" style="color:rgb(8, 8, 207)">Fair Play Award</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-700">Recognizing the team with the best disciplinary record and sportsmanship</p>
+                        <div class="flex items-center mt-3 text-sm text-orange-600">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            <span>Fair Play Shield</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Statistical Awards -->
+                <div class="card fade-in fade-in-delay-2 bg-gradient-to-br from-teal-50 to-white border border-teal-200">
+                    <div class="card-shine"></div>
+                    <div class="p-3 flex items-center border-b-3 border-teal-500">
+                        <div class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center mr-3 rolling-ball">
+                            <i class="fas fa-futbol text-white"></i>
+                        </div>
+                        <h3 class="text-teal-600 font-semibold" style="color:rgb(255, 51, 0)">Golden Boot</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-700">For the player who scores the most goals in the tournament</p>
+                        <div class="flex items-center mt-3 text-sm text-teal-600">
+                            <i class="fas fa-shoe-prints mr-2"></i>
+                            <span>Top Scorer Recognition</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card fade-in fade-in-delay-2 bg-gradient-to-br from-teal-50 to-white border border-teal-200">
+                    <div class="card-shine"></div>
+                    <div class="p-3 flex items-center border-b-3 border-teal-500">
+                        <div class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center mr-3">
+                            <i class="fas fa-hand-paper text-white"></i>
+                        </div>
+                        <h3 class="text-teal-600 font-semibold" style="color:rgb(255, 0, 68)">Golden Glove</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-700">For the most outstanding goalkeeper (e.g., most clean sheets)</p>
+                        <div class="flex items-center mt-3 text-sm text-teal-600">
+                            <i class="fas fa-mitten mr-2"></i>
+                            <span>Best Goalkeeper Award</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card fade-in fade-in-delay-2 bg-gradient-to-br from-teal-50 to-white border border-teal-200">
+                    <div class="card-shine"></div>
+                    <div class="p-3 flex items-center border-b-3 border-teal-500">
+                        <div class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center mr-3">
+                            <i class="fas fa-hands-helping text-white"></i>
+                        </div>
+                        <h3 class="text-teal-600 font-semibold" style="color:orange">Top Assist Provider</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-700">For the player with the most assists throughout the tournament</p>
+                        <div class="flex items-center mt-3 text-sm text-teal-600">
+                            <i class="fas fa-magic mr-2"></i>
+                            <span>Playmaker Recognition</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Voting-Based Awards -->
+                <div class="card fade-in fade-in-delay-3 bg-gradient-to-br from-purple-50 to-white border border-purple-200">
+                    <div class="card-shine"></div>
+                    <div class="p-3 flex items-center border-b-3 border-purple-500">
+                        <div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center mr-3 pulsing">
+                            <i class="fas fa-star text-white"></i>
+                        </div>
+                        <h3 class="text-purple-600 font-semibold">Player of the Tournament</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-700">Voted as the best overall player throughout the competition</p>
+                        <div class="flex items-center mt-3 text-sm text-purple-600">
+                            <i class="fas fa-vote-yea mr-2"></i>
+                            <span>Voted by Tournament Committee</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card fade-in fade-in-delay-3 bg-gradient-to-br from-purple-50 to-white border border-purple-200">
+                    <div class="card-shine"></div>
+                    <div class="p-3 flex items-center border-b-3 border-purple-500">
+                        <div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center mr-3 pulsing">
+                            <i class="fas fa-user-friends text-white"></i>
+                        </div>
+                        <h3 class="text-purple-600 font-semibold">Players' Player</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-700">Voted as the best player by their peers in the tournament</p>
+                        <div class="flex items-center mt-3 text-sm text-purple-600">
+                            <i class="fas fa-users mr-2"></i>
+                            <span>Voted by Fellow Players</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card fade-in fade-in-delay-3 bg-gradient-to-br from-purple-50 to-white border border-purple-200">
+                    <div class="card-shine"></div>
+                    <div class="p-3 flex items-center border-b-3 border-purple-500">
+                        <div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center mr-3 pulsing">
+                            <i class="fas fa-bolt text-white"></i>
+                        </div>
+                        <h3 class="text-purple-600 font-semibold">Goal of the Tournament</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-700">For the most spectacular or significant goal scored</p>
+                        <div class="flex items-center mt-3 text-sm text-purple-600">
+                            <i class="fas fa-film mr-2"></i>
+                            <span>Highlight of the Tournament</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Awards Section -->
+            <div class="card fade-in fade-in-delay-4 bg-gradient-to-br from-yellow-50 to-white border border-yellow-200 mt-6 relative overflow-hidden">
+                <div class="card-shine"></div>
+                <div class="p-3 flex items-center bg-yellow-100">
+                    <div class="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center mr-3 trophy-pulse">
+                        <i class="fas fa-certificate text-white"></i>
+                    </div>
+                    <h3 class="text-yellow-700 font-semibold">Additional Recognition Opportunities</h3>
+                </div>
+                <div class="p-4 flex items-center justify-between">
+                    <div class="flex-1">
+                        <p class="text-gray-700 mb-2">The Scholars League may also recognize excellence in other areas:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            <div class="flex items-center text-sm text-gray-700">
+                                <i class="fas fa-chalkboard-teacher text-yellow-600 mr-2"></i>
+                                <span>Best Coach</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-700">
+                                <i class="fas fa-whistle text-yellow-600 mr-2"></i>
+                                <span>Top Referee</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-700">
+                                <i class="fas fa-bullhorn text-yellow-600 mr-2"></i>
+                                <span>Most Dedicated Fan</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="w-24 h-24 relative">
+                            <div class="absolute top-0 left-0 w-20 h-20 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-500 opacity-30 animate-ping"></div>
+                            <div class="absolute top-2 left-2 w-16 h-16 rounded-full bg-yellow-100 border-4 border-yellow-400 flex items-center justify-center z-10">
+                                <i class="fas fa-plus text-yellow-600 text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conclusion Section -->
+        <section id="section-9" class="section">
+            <div class="section-header">
+                <i class="fas fa-flag-checkered"></i>
+                <h2 class="text-2xl font-bold">Conclusion</h2>
+            </div>
+            
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-2">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-teal-500">
+                        The Scholars League: Creating a Lasting Legacy
+                    </span>
+                </h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    A structured soccer tournament rooted in the legacies of inspiring figures and fostering community engagement
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <!-- Community Building Card -->
+                <div class="card fade-in fade-in-delay-1 bg-gradient-to-br from-orange-50 to-white border border-orange-200 rounded-lg p-5 shadow-sm">
+                    <div class="card-shine"></div>
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0 mr-4">
+                            <i class="fas fa-users text-orange-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-orange-700 mb-2">Community Building</h3>
+                            <p class="text-gray-700">
+                                The Scholars League will significantly enhance interaction and camaraderie among Scholars, creating a sense of community that extends beyond academic pursuits.
+                            </p>
+                            <div class="mt-3 flex items-center text-orange-600">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                <span class="text-sm font-medium">Creating bonds across diverse backgrounds</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Leadership Development Card -->
+                <div class="card fade-in fade-in-delay-2 bg-gradient-to-br from-teal-50 to-white border border-teal-200 rounded-lg p-5 shadow-sm">
+                    <div class="card-shine"></div>
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0 mr-4">
+                            <i class="fas fa-chess-queen text-teal-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-teal-600 mb-2">Leadership Development</h3>
+                            <p class="text-gray-700">
+                                The tournament provides practical opportunities for Scholars to develop leadership abilities, teamwork skills, and strategic thinking in a competitive environment.
+                            </p>
+                            <div class="mt-3 flex items-center text-teal-600">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                <span class="text-sm font-medium">Fostering personal growth and confidence</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Legacy and Inspiration Card -->
+                <div class="card fade-in fade-in-delay-3 bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-lg p-5 shadow-sm">
+                    <div class="card-shine"></div>
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 mr-4">
+                            <i class="fas fa-book-open text-purple-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-purple-600 mb-2">Legacy and Inspiration</h3>
+                            <p class="text-gray-700">
+                                The Scholars League is not just a tournament; it is a celebration of the legacies of great leaders, inspiring Scholars to embody their values and strive for excellence.
+                            </p>
+                            <div class="mt-3 flex items-center text-purple-600">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                <span class="text-sm font-medium">Inspiring future generations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-2">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-teal-500">
+                        Join Us in This Journey
+                    </span>
+                </h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    We invite all Scholars to participate, support, and celebrate the spirit of the Scholars League. Together, we can create a legacy that inspires generations to come.
+                </p>
+                <div class="mt-6">
+                    <a href="#section-1" class="btn btn-primary">
+                        <i class="fas fa-arrow-up mr-2"></i>
+                        Back to Top
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Scholars League. All rights reserved.</p>
+            <p>Designed by  IRANZI INNOCENT</p>
         </div>
-    </div>
-
-    <!-- JavaScript -->
+    </footer>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
     <script>
-        // Initialize JSConfetti
-        const jsConfetti = new JSConfetti();
-
-        // Show overlay and trigger confetti on page load
-        window.onload = function() {
-            // Celebration Overlay
-            const overlay = document.getElementById('celebrationOverlay');
-            overlay.classList.add('active');
-            jsConfetti.addConfetti({
-                emojis: ['🎉', '🏆', '✨'],
-                confettiRadius: 6,
-                confettiNumber: 150,
+        $(document).ready(function() {
+            // Smooth scrolling for navigation links
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                }
             });
-            setTimeout(() => {
-                jsConfetti.addConfetti({
-                    emojis: ['🎉', '🏆', '✨'],
-                    confettiRadius: 6,
-                    confettiNumber: 50,
-                });
-            }, 1000);
-            setTimeout(() => {
-                overlay.classList.remove('active');
-                jsConfetti.clear();
-            }, 8000);
-
-            // Falling Congratulations Messages
-            const messages = [
-                'Congrats Asafu!',
-                'Victory for Jaili!',
-                'Well Done Rencia!',
-                'Helefti Shines!',
-                'Voice of Scholars Wins!',
-                '2025 Champions!',
-                'Amazing Leadership!',
-                'Election Triumph!'
-            ];
-
-            function createFallingMessage() {
-                const message = document.createElement('div');
-                message.className = 'falling-message';
-                message.textContent = messages[Math.floor(Math.random() * messages.length)];
-                // Random horizontal position (10% to 90% of window width)
-                const leftPos = Math.random() * 80 + 10;
-                message.style.left = `${leftPos}%`;
-                // Random slight rotation
-                const rotation = Math.random() * 20 - 10;
-                message.style.transform = `rotate(${rotation}deg)`;
-                document.body.appendChild(message);
-                // Remove message after animation
-                setTimeout(() => {
-                    message.remove();
-                }, 10000); // Matches animation duration
-            }
-
-            // Create messages at intervals
-            setInterval(createFallingMessage, 1500); // New message every 1.5 seconds
-            createFallingMessage(); // Start immediately
-        };
+            
+            // Fade-in effect for sections
+            $('.section').each(function(index) {
+                $(this).addClass('fade-in');
+                $(this).css('animation-delay', (index + 1) * 0.2 + 's');
+            });
+        });
     </script>
 </body>
 </html>
